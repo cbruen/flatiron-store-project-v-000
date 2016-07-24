@@ -8,6 +8,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'devise'
 
 group :test, :development do
   gem "rspec-rails"
@@ -24,6 +25,7 @@ group :test, :development do
   gem "pry"
   gem "guard-rspec", require: false
   gem "thin"
+  gem 'tzinfo-data', platform: [:mingw, :mswin, :x64_mingw]
 end
 
 gem "bootstrap-sass", "~> 3.1.1"

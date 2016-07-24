@@ -15,6 +15,7 @@ describe 'Feature Test: Cart', :type => :feature do
       end
 
      it "Lists all items in the cart" do
+     	
        visit cart_path(@user.current_cart)
        expect(page).to have_content(@first_item.title)
        expect(page).to have_content(@second_item.title)
@@ -27,8 +28,8 @@ describe 'Feature Test: Cart', :type => :feature do
 
      it "redirects to cart show page on Checkout" do
        visit cart_path(@user.current_cart)
+     
        click_button("Checkout")
-
        expect(page.current_path).to eq(cart_path(@current_cart))
        expect(page).to_not have_button("Checkout")
      end
@@ -135,6 +136,7 @@ describe 'Feature Test: Cart', :type => :feature do
           click_button("Add to Cart")
         end
         @user.reload
+        
         expect(page.current_path).to eq(cart_path(@user.current_cart))
       end
 
@@ -147,6 +149,7 @@ describe 'Feature Test: Cart', :type => :feature do
           end
         end
         @user.reload
+        
         expect(@user.current_cart.items.count).to eq(1)
         expect(@user.current_cart.line_items.count).to eq(1)
         expect(@user.current_cart.line_items.first.quantity).to eq(2)
